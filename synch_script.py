@@ -83,6 +83,8 @@ def main():
 
     schedule.every(args.period).minutes.do(job, source=args.source, destination=args.destination)
 
+    synch_folders(args.source, args.destination)
+
     try:
         while True:
             schedule.run_pending()
